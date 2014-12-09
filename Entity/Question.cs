@@ -33,5 +33,11 @@ namespace Entity
         public Boolean IsActive { get; set; }
 
         public string CategoryName { get; set; }
+
+        public int CurrAnsNo { get; set; }
+
+        public int NumOfQuestion { get; set; }
+
+        public int ContestId { get; set; }
     }
 }

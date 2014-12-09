@@ -2,3 +2,4 @@ F:\Developed Projects\Quiz\Entity\bin\Debug\Entity.dll
 F:\Developed Projects\Quiz\Entity\bin\Debug\Entity.pdb
 F:\Developed Projects\Quiz\Entity\obj\Debug\Entity.dll
 F:\Developed Projects\Quiz\Entity\obj\Debug\Entity.pdb
+F:\Developed Projects\Quiz\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache

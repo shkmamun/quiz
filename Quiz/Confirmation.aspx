@@ -1,21 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Confirmation.aspx.cs" Inherits="Quiz.Confirmation" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <script>
-        $(document).ready(function () {
 
-        });
-        function closeWondow()
-        {
-            alert(1);
-            //window.close();
-            //  open(location, '_self').close();
-            window.open('', '_self', '');
-            window.close();
-            return false;
-        }
-        
-    </script>
     <div style="padding: 40px; z-index: 9999; display: block; border: 1px solid gray; margin-top: 50px;">
 
         <div runat="server" id="divError" visible="false">
@@ -50,8 +36,8 @@
             <br />
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <asp:Button runat="server" OnClick="Start_Click" Text="Start" CssClass="btn btn-default" />
-                    <asp:Button ID="btnCancel" runat="server" OnClientClick="javascript:closeWondow();" Text="Cancel" CssClass="btn btn-default" />
+                    <asp:Button  ID="btnStart" runat="server" OnClick="Start_Click" Text="Start" CssClass="btn btn-default" />
+                    <asp:Button ID="btnCancel" OnClick="Cancel_Click" runat="server" Text="Cancel" CssClass="btn btn-default" />
 
                 </div>
             </div>

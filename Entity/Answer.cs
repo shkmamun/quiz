@@ -25,5 +25,7 @@ namespace Entity
         public DateTime ExamDateTime { get; set; }
 
         public Int32 TimeTaken { get; set; }
+
+        public String RefCode { get; set; }
     }
 }

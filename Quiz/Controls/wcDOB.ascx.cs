@@ -111,7 +111,11 @@ namespace WebApplication1
             lt.Text = "DD";
             lt.Value = "0";
             ddlDay.Items.Add(lt);
-            int days = DateTime.DaysInMonth(this.Year, this.Month);
+            int days = 0;
+            if (this.Year == 0)
+                days = 31;
+            else
+                days = DateTime.DaysInMonth(this.Year, this.Month);
             for (int i = 1; i <= days; i++)
             {
                 lt = new ListItem();
@@ -119,7 +123,7 @@ namespace WebApplication1
                 lt.Value = i.ToString();
                 ddlDay.Items.Add(lt);
             }
-            ddlDay.Items.FindByValue(DateTime.Now.Day.ToString()).Selected = true;
+            ddlDay.Items.FindByValue(DateTime.Now.Day.ToString()).Selected = false;
         }
 
         private void PopulateMonth()
@@ -136,7 +140,7 @@ namespace WebApplication1
                 lt.Value = i.ToString();
                 ddlMonth.Items.Add(lt);
             }
-            ddlMonth.Items.FindByValue(DateTime.Now.Month.ToString()).Selected = true;
+            ddlMonth.Items.FindByValue(DateTime.Now.Month.ToString()).Selected = false;
         }
 
         private void PopulateYear()
@@ -153,7 +157,7 @@ namespace WebApplication1
                 lt.Value = i.ToString();
                 ddlYear.Items.Add(lt);
             }
-            ddlYear.Items.FindByValue(DateTime.Now.Year.ToString()).Selected = true;
+            ddlYear.Items.FindByValue(DateTime.Now.Year.ToString()).Selected = false;
         }
 
        

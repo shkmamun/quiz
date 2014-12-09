@@ -3,6 +3,7 @@ using DataAccess;
 using Entity;
 using Quiz.Utility;
 using System;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -39,14 +40,86 @@ namespace Quiz
 
             DBGateway db = new DBGateway();
             db.InsertParticipant(part);
-            //ranString = HttpUtility.UrlEncode(UtilityManager.Encrypt(ranString));
+            SendEmail(part);
             Response.Redirect("~/RegistrationConfirmation.aspx");
-            //Clear();
-            //pnlConfimation.Visible = true;
-            //lblMessage.Text = "Participate has been successfully created.";
-            //ScriptManager.RegisterStartupScript(Page, Page.GetType(), "Alert", "Data has been saved", true);
-
         }
+
+        private bool SendEmail(Participant part)
+        { 
+            #region Confirmation Email
+            try
+            {
+                string file = Server.MapPath("~/Templates/RegistrationEmailTemplate.html");
+                StreamReader stream = File.OpenText(file);
+
+                string body = stream.ReadToEnd();
+                stream.Close();
+
+                body = body.Replace("{!FullName!}", part.FirstName + " " + part.LastName);
+              
+                DBGateway db = new DBGateway();
+                Contest contest = db.GetActiveContest();
+                if (contest != null)
+                {
+                    string fullLink  =CreateLink(part.RefCode);
+                    body = body.Replace("{!Link!}", fullLink);
+                    body = body.Replace("{!URLLINK!}", fullLink);
+                    body = body.Replace("{!Display!}", "showpanel");
+                    body = body.Replace("{!TestMessage!}", GetMessage(Quiz.Utility.EnumType.MessageType.GeneralMessage, contest));
+                    body = body.Replace("{!DisplayMesasge!}", "hidepanel");
+                }
+                else
+                {
+                    body = body.Replace("{!DisplayMesasge!}", "showpanel");
+                    body = body.Replace("{!Display!}", "hidepanel");
+                    body = body.Replace("{!Message!}", GetMessage(Quiz.Utility.EnumType.MessageType.TestMessage));
+                }
+
+                UtilityManager.SendEmail("equiz.mamun@gmail.com", "E Quiz", part.Email, "mehedi4055@gmail.com", "Registration info", body);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            #endregion
+        }
+
+        private string CreateLink(string refCode)
+        {
+            string link = string.Empty;
+            string vertual = string.Empty;
+            if (!string.IsNullOrWhiteSpace(HttpRuntime.AppDomainAppVirtualPath))
+            {
+                if (HttpRuntime.AppDomainAppVirtualPath.Length > 1)
+                {
+                    vertual = HttpRuntime.AppDomainAppVirtualPath;
+                }
+            }
+            link = HttpContext.Current.Request.Url.Scheme + "://" + string.Format(HttpContext.Current.Request.Url.Authority.ToString()+vertual + "/Confirmation?RefCode={0}", refCode); 
+            return link;
+        }
+
+        private string GetMessage(Quiz.Utility.EnumType.MessageType messageType, Contest contest = null)
+        {
+            string message = string.Empty;
+           
+            if (messageType == Quiz.Utility.EnumType.MessageType.GeneralMessage)
+            {               
+                if(contest.EndDate>DateTime.Now && contest.StartDate<DateTime.Now)
+                    message = string.Format("Test already started on <b>{0}</b>. But you can attend till {1}.", contest.StartDate.ToShortDateString(), contest.EndDate.ToShortDateString());
+                else if (contest.EndDate < DateTime.Now)
+                    message = string.Format("There is no test available right now. Last test was finish on {0}", contest.EndDate.ToShortDateString());
+                else if(contest.StartDate>DateTime.Now)
+                    message = string.Format("Test is not  started yet. Please wait till  <b>{0}</b>.  You can attend untill {1}.", contest.StartDate.ToShortDateString(), contest.EndDate.ToShortDateString());
+            }
+            else
+            {
+                message = "There is no active test availabe right now. Please we will inform you when we have any.";
+            }
+            return message;
+        }
+
 
         private void Clear()
         {

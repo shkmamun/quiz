@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web;
@@ -116,6 +118,41 @@ namespace Quiz.Utility
                 }
             }
             return cipherText;
+        }
+
+        public static bool SendEmail(String fromAddr, String senderName, String toAddr, String ccAddr, String subject, String body)
+        {
+            string smtpHost = ConfigurationManager.AppSettings["SMTPHost"];
+            int smtpPort = Convert.ToInt32(ConfigurationManager.AppSettings["SMTPPort"]);
+            string smtpUserName = ConfigurationManager.AppSettings["SMTPUser"];
+            string smtpPassword = ConfigurationManager.AppSettings["SMTPassword"];
+
+            SmtpClient client = new SmtpClient(smtpHost, smtpPort);
+            client.EnableSsl = true;
+
+            client.Credentials = new NetworkCredential(smtpUserName, smtpPassword);
+            MailAddress from = new MailAddress(fromAddr, senderName);
+            MailAddress to = new MailAddress(toAddr);
+            MailMessage message = new MailMessage(from, to);
+
+            if (ccAddr.Trim() != "")
+            {
+                string[] strArray = ccAddr.Trim().Split(new char[] { ';' });
+                foreach (string s in strArray)
+                    message.CC.Add(s);
+            }
+            message.Subject = subject;
+            message.IsBodyHtml = true;
+            message.Body = body;
+            try
+            {
+                client.Send(message);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
     }
 }

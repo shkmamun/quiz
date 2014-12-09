@@ -39,7 +39,7 @@ namespace Quiz
                     }
                     else if (obj.Status == 3)
                     {
-                        divFinish.Visible = true;                        
+                        divFinish.Visible = true;
                     }
                     else if (obj.Status == 4)
                     {
@@ -60,6 +60,29 @@ namespace Quiz
         }
         protected void Start_Click(object sender, EventArgs e)
         {
+            string refCode = Convert.ToString(Request.QueryString["RefCode"]);
+
+            if (!string.IsNullOrWhiteSpace(refCode))
+            {
+                string vertual = string.Empty;
+                if (!string.IsNullOrWhiteSpace(HttpRuntime.AppDomainAppVirtualPath))
+                {
+                    if (HttpRuntime.AppDomainAppVirtualPath.Length > 1)
+                    {
+                        vertual = HttpRuntime.AppDomainAppVirtualPath;
+                    }
+                }
+                string url = vertual+"/QuizRun?RefCode=" + refCode;
+                Response.Redirect(url);
+            }
+            else
+            {
+                divError.Visible = true;
+            }
+        }
+        protected void Cancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/About");
         }
     }
 }
