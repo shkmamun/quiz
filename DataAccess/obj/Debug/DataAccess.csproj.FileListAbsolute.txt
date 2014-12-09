@@ -1,0 +1,7 @@
+F:\Developed Projects\Quiz\DataAccess\bin\Debug\DataAccess.dll
+F:\Developed Projects\Quiz\DataAccess\bin\Debug\DataAccess.pdb
+F:\Developed Projects\Quiz\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+F:\Developed Projects\Quiz\DataAccess\obj\Debug\DataAccess.dll
+F:\Developed Projects\Quiz\DataAccess\obj\Debug\DataAccess.pdb
+F:\Developed Projects\Quiz\DataAccess\bin\Debug\Entity.dll
+F:\Developed Projects\Quiz\DataAccess\bin\Debug\Entity.pdb

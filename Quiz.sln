@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quiz", "Quiz\Quiz.csproj", "{D49B9F0A-F17F-47D9-9311-9CCC10128C76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{6B9D302F-6F21-4FDD-A21B-C31547AD0BFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entity", "Entity\Entity.csproj", "{7D8E3924-6781-4012-915C-9C1203040ADA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D49B9F0A-F17F-47D9-9311-9CCC10128C76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D49B9F0A-F17F-47D9-9311-9CCC10128C76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D49B9F0A-F17F-47D9-9311-9CCC10128C76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D49B9F0A-F17F-47D9-9311-9CCC10128C76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B9D302F-6F21-4FDD-A21B-C31547AD0BFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B9D302F-6F21-4FDD-A21B-C31547AD0BFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B9D302F-6F21-4FDD-A21B-C31547AD0BFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B9D302F-6F21-4FDD-A21B-C31547AD0BFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D8E3924-6781-4012-915C-9C1203040ADA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D8E3924-6781-4012-915C-9C1203040ADA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D8E3924-6781-4012-915C-9C1203040ADA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D8E3924-6781-4012-915C-9C1203040ADA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
