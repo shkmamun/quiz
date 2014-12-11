@@ -10,7 +10,7 @@
 
         <asp:Label runat="server" ID="lblQuestion"></asp:Label>
         <br />
-        <div style="margin-left: 30px; margin-top: 10px; font-weight: normal;">
+        <div style=" font-weight: normal;">
             <asp:RadioButtonList runat="server" ID="rdlQuestions" >
             </asp:RadioButtonList>
         </div>
