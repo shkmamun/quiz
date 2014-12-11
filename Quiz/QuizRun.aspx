@@ -11,7 +11,7 @@
         <asp:Label runat="server" ID="lblQuestion"></asp:Label>
         <br />
         <div style="margin-left: 30px; margin-top: 10px; font-weight: normal;">
-            <asp:RadioButtonList runat="server" ID="rdlQuestions" CellSpacing="100">
+            <asp:RadioButtonList runat="server" ID="rdlQuestions" >
             </asp:RadioButtonList>
         </div>
         <br />
