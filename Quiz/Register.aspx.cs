@@ -98,6 +98,11 @@ namespace Quiz
             string uri = HttpContext.Current.Request.Url.AbsoluteUri;
             int index = uri.LastIndexOf('/');
             uri = uri.Remove(index);
+            if (uri.IndexOf("apphb")>0)
+            {
+                index = uri.LastIndexOf(':');
+                uri = uri.Remove(index);
+            }
             link = uri + "/Confirmation?RefCode=" + refCode; 
             return link;
         }
