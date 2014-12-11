@@ -65,14 +65,14 @@ namespace Quiz
             if (!string.IsNullOrWhiteSpace(refCode))
             {
                 string vertual = string.Empty;
-                if (!string.IsNullOrWhiteSpace(HttpRuntime.AppDomainAppVirtualPath))
-                {
-                    if (HttpRuntime.AppDomainAppVirtualPath.Length > 1)
-                    {
-                        vertual = HttpRuntime.AppDomainAppVirtualPath;
-                    }
-                }
-                string url = vertual+"/QuizRun?RefCode=" + refCode;
+                //if (!string.IsNullOrWhiteSpace(HttpRuntime.AppDomainAppVirtualPath))
+                //{
+                //    if (HttpRuntime.AppDomainAppVirtualPath.Length > 1)
+                //    {
+                //        vertual = HttpRuntime.AppDomainAppVirtualPath;
+                //    }
+                //}
+                string url = "/QuizRun?RefCode=" + refCode;
                 Response.Redirect(url);
             }
             else

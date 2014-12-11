@@ -14,6 +14,13 @@ namespace Quiz
 {
     public partial class Register : Page
     {
+        protected void Page_Load(object sender,EventArgs e)
+        {
+            if(!IsPostBack)
+            {
+
+            }
+        }
         protected void CreateParticipant_Click(object sender, EventArgs e)
         {
 
@@ -75,7 +82,7 @@ namespace Quiz
                     body = body.Replace("{!Message!}", GetMessage(Quiz.Utility.EnumType.MessageType.TestMessage));
                 }
 
-                UtilityManager.SendEmail("equiz.mamun@gmail.com", "E Quiz", part.Email, "mehedi4055@gmail.com", "Registration info", body);
+                UtilityManager.SendEmail("equiz.mamun@gmail.com", "E Quiz", part.Email, "", "Registration info", body);
                 return true;
             }
             catch (Exception ex)
@@ -88,15 +95,8 @@ namespace Quiz
         private string CreateLink(string refCode)
         {
             string link = string.Empty;
-            string vertual = string.Empty;
-            if (!string.IsNullOrWhiteSpace(HttpRuntime.AppDomainAppVirtualPath))
-            {
-                if (HttpRuntime.AppDomainAppVirtualPath.Length > 1)
-                {
-                    vertual = HttpRuntime.AppDomainAppVirtualPath;
-                }
-            }
-            link = HttpContext.Current.Request.Url.Scheme + "://" + string.Format(HttpContext.Current.Request.Url.Authority.ToString()+vertual + "/Confirmation?RefCode={0}", refCode); 
+
+            link = HttpContext.Current.Request.Url.Scheme + ":/" + HttpContext.Current.Request.Url.AbsolutePath + "/Confirmation?RefCode="+ refCode; 
             return link;
         }
 
