@@ -93,11 +93,13 @@ namespace Quiz
         }
 
         private string CreateLink(string refCode)
-        {            
+        {
+            string link = string.Empty;
             string uri = HttpContext.Current.Request.Url.AbsoluteUri;
             int index = uri.LastIndexOf('/');
             uri = uri.Remove(index);
-            return uri;
+            link = uri + "/Confirmation?RefCode=" + refCode; 
+            return link;
         }
 
         private string GetMessage(Quiz.Utility.EnumType.MessageType messageType, Contest contest = null)
