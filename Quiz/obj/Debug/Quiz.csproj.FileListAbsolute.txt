@@ -23,7 +23,6 @@ F:\Developed Projects\Quiz\Quiz\bin\DataAccess.dll
 F:\Developed Projects\Quiz\Quiz\bin\Entity.dll
 F:\Developed Projects\Quiz\Quiz\bin\DataAccess.pdb
 F:\Developed Projects\Quiz\Quiz\bin\Entity.pdb
-E:\Developed Projects\Quiz\Quiz\obj\Debug\Quiz.csprojResolveAssemblyReference.cache
 E:\Developed Projects\Quiz\Quiz\bin\Quiz.dll.config
 E:\Developed Projects\Quiz\Quiz\bin\Quiz.dll
 E:\Developed Projects\Quiz\Quiz\bin\Quiz.pdb
@@ -46,5 +45,6 @@ E:\Developed Projects\Quiz\Quiz\bin\System.Web.Optimization.xml
 E:\Developed Projects\Quiz\Quiz\bin\Antlr3.Runtime.pdb
 E:\Developed Projects\Quiz\Quiz\bin\Newtonsoft.Json.xml
 E:\Developed Projects\Quiz\Quiz\bin\Microsoft.AspNet.FriendlyUrls.xml
+E:\Developed Projects\Quiz\Quiz\obj\Debug\Quiz.csprojResolveAssemblyReference.cache
 E:\Developed Projects\Quiz\Quiz\obj\Debug\Quiz.dll
 E:\Developed Projects\Quiz\Quiz\obj\Debug\Quiz.pdb
