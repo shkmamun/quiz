@@ -100,7 +100,6 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="AddUpdateQuestion.aspx" />
-    <Content Include="ConfirmationOld.aspx" />
     <Content Include="Confirmation.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
@@ -197,13 +196,6 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="ConfirmationOld.aspx.cs">
-      <DependentUpon>ConfirmationOld.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ConfirmationOld.aspx.designer.cs">
-      <DependentUpon>ConfirmationOld.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Confirmation.aspx.cs">
       <DependentUpon>Confirmation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

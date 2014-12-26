@@ -7,3 +7,4 @@ E:\Developed Projects\Quiz\Entity\bin\Debug\Entity.dll
 E:\Developed Projects\Quiz\Entity\bin\Debug\Entity.pdb
 E:\Developed Projects\Quiz\Entity\obj\Debug\Entity.dll
 E:\Developed Projects\Quiz\Entity\obj\Debug\Entity.pdb
+E:\Developed Projects\Quiz\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
