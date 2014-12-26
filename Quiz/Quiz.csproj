@@ -116,7 +116,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="UnAuth.Master" />
+    <Content Include="UnAuth1.Master" />
     <Content Include="Admin\Admin.Master" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Questions.aspx" />
@@ -166,6 +166,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Site.Mobile.Master" />
     <Content Include="Site1.Master" />
+    <Content Include="UnAuth.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -248,6 +249,7 @@
     </Compile>
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
@@ -258,6 +260,13 @@
     </Compile>
     <Compile Include="UnAuth.Master.designer.cs">
       <DependentUpon>UnAuth.Master</DependentUpon>
+    </Compile>
+    <Compile Include="UnAuth1.Master.cs">
+      <DependentUpon>UnAuth1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UnAuth1.Master.designer.cs">
+      <DependentUpon>UnAuth1.Master</DependentUpon>
     </Compile>
     <Compile Include="Manage.aspx.cs">
       <DependentUpon>Manage.aspx</DependentUpon>
