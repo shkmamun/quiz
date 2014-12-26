@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Quiz
+namespace Quiz.Admin
 {
-    public partial class SiteMaster : MasterPage
+    public partial class Admin : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,7 +20,7 @@ namespace Quiz
         }
         protected void lnkSignOut_Click(object sender, EventArgs e)
         {
-            Session.Abandon();           
+            Session.Abandon();
             Page.Response.Redirect("~/Login.aspx");
         }
     }

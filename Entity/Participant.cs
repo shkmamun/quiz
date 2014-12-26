@@ -42,6 +42,8 @@ namespace Entity
 
         public Boolean IsActive { get; set; }
 
+        public string Platform { get; set; }
+
 
     }
 }

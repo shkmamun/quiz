@@ -10,24 +10,15 @@
 namespace Quiz {
     
     
-    public partial class Confirmation {
+    public partial class UnAuth {
         
         /// <summary>
-        /// divError control.
+        /// MainContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divError;
-        
-        /// <summary>
-        /// divSucess control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divSucess;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
     }
 }

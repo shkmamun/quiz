@@ -13,6 +13,24 @@ namespace Quiz {
     public partial class SiteMaster {
         
         /// <summary>
+        /// lblWelcome control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lblWelcome;
+        
+        /// <summary>
+        /// lnkSignOut control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkSignOut;
+        
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>

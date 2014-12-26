@@ -21,68 +21,19 @@ namespace Quiz
                 {
                     DBGateway db = new DBGateway();
 
-                    Contest obj = db.GetContestValidation(refCode);
-
-                    if (obj.Status == 0)
+                    int result = db.ActivateParticipant(refCode);
+                    if (result > 0)
+                    {
+                        divSucess.Visible = true;
+                    }
+                    else
                     {
                         divError.Visible = true;
                     }
-                    else if (obj.Status == 1)
-                    {
-                        divNotStarted.Visible = true;
-                        lblStartDate.Text = obj.StartDate.ToString("MMM dd, yyyy");
-                    }
-                    else if (obj.Status == 2)
-                    {
-                        divEnd.Visible = true;
-                        lblEndDate.Text = obj.EndDate.ToString("MMM dd, yyyy");
-                    }
-                    else if (obj.Status == 3)
-                    {
-                        divFinish.Visible = true;
-                    }
-                    else if (obj.Status == 4)
-                    {
-                        divUnIdentified.Visible = true;
-                    }
-                    else if (obj.Status == 5)
-                    {
-                        divQuiz.Visible = true;
-                        lblNumOfQuestion.Text = obj.NumOfQuestion.ToString();
-                    }
-                }
-                else
-                {
-                    divError.Visible = true;
                 }
             }
 
         }
-        protected void Start_Click(object sender, EventArgs e)
-        {
-            string refCode = Convert.ToString(Request.QueryString["RefCode"]);
-
-            if (!string.IsNullOrWhiteSpace(refCode))
-            {
-                string vertual = string.Empty;
-                //if (!string.IsNullOrWhiteSpace(HttpRuntime.AppDomainAppVirtualPath))
-                //{
-                //    if (HttpRuntime.AppDomainAppVirtualPath.Length > 1)
-                //    {
-                //        vertual = HttpRuntime.AppDomainAppVirtualPath;
-                //    }
-                //}
-                string url = "/QuizRun?RefCode=" + refCode;
-                Response.Redirect(url);
-            }
-            else
-            {
-                divError.Visible = true;
-            }
-        }
-        protected void Cancel_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("/About");
-        }
+ 
     }
 }

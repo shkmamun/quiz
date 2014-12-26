@@ -150,14 +150,14 @@ namespace WebApplication1
             lt.Text = "YYYY";
             lt.Value = "0";
             ddlYear.Items.Add(lt);
-            for (int i = DateTime.Now.Year; i >= 1950; i--)
+            for (int i = DateTime.Now.Year-10; i >= 1950; i--)
             {
                 lt = new ListItem();
                 lt.Text = i.ToString();
                 lt.Value = i.ToString();
                 ddlYear.Items.Add(lt);
             }
-            ddlYear.Items.FindByValue(DateTime.Now.Year.ToString()).Selected = false;
+           // ddlYear.Items.FindByValue(DateTime.Now.Year.ToString()).Selected = false;
         }
 
        

@@ -26,7 +26,7 @@ namespace DataAccess
 
             try
             {
-                SqlParameter[] arParms = new SqlParameter[14];
+                SqlParameter[] arParms = new SqlParameter[16];
 
                 arParms[0] = new SqlParameter("@RefCode", SqlDbType.VarChar, 64);
                 arParms[0].Value = obj.RefCode;
@@ -67,9 +67,14 @@ namespace DataAccess
                 arParms[12] = new SqlParameter("@IPAddress", SqlDbType.VarChar, 50);
                 arParms[12].Value = obj.IPAddress;
 
-
                 arParms[13] = new SqlParameter("@Device", SqlDbType.VarChar, 50);
                 arParms[13].Value = obj.Device;
+
+                arParms[14] = new SqlParameter("@Password", SqlDbType.VarChar, 50);
+                arParms[14].Value = obj.Password;
+
+                arParms[15] = new SqlParameter("@Platform", SqlDbType.VarChar, 100);
+                arParms[15].Value = obj.Platform;
 
                 connection = GetConnection();
 
@@ -91,7 +96,37 @@ namespace DataAccess
 
             return 0;
         }
+       public int ActivateParticipant(string RefCode)
+        {
+            SqlConnection connection = null;
+            int Result = 0;
+           
+            try
+            {
+                SqlParameter[] arParms = new SqlParameter[1];
 
+                arParms[0] = new SqlParameter("@RefCode", SqlDbType.VarChar, 50);
+                arParms[0].Value = RefCode;
+
+                connection = GetConnection();
+
+                Result = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "ActivateParticipant", arParms);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Cannot get information.", ex);
+            }
+            finally
+            {
+                if (connection != null)
+                    connection.Dispose();
+            }
+                     
+
+            return Result;
+        }
         public Contest GetContestValidation(string RefCode)
         {
             SqlConnection connection = null;
@@ -630,6 +665,96 @@ namespace DataAccess
             }
 
             return questions;
+        }
+
+        public bool CheckDuplicateEmail(string userName)
+        {
+            bool isExist = false;
+            SqlConnection connection = null;
+            DataSet Result;          
+
+            try
+            {
+                SqlParameter[] arParms = new SqlParameter[1];
+
+                arParms[0] = new SqlParameter("@Email", SqlDbType.VarChar, 100);
+                arParms[0].Value = userName;                 
+
+                connection = GetConnection();
+
+                Result = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "CheckDuplicateEmail", arParms);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Cannot get information.", ex);
+            }
+            finally
+            {
+                if (connection != null)
+                    connection.Dispose();
+            }
+
+            if (Result.Tables.Count > 0)
+            {
+                DataTable dt = Result.Tables[0];
+               if(dt.Rows.Count>0)
+               {
+                   isExist = true;
+               }
+               
+
+            }
+
+            return isExist;
+ 
+        }
+
+        public Participant GetParticipant(string userName)
+        {
+            SqlConnection connection = null;
+            DataSet Result;
+            Participant obj = null;
+
+            try
+            {
+                SqlParameter[] arParms = new SqlParameter[1];
+
+                arParms[0] = new SqlParameter("@userName", SqlDbType.VarChar, 100);
+                arParms[0].Value = userName;
+ 
+
+                connection = GetConnection();
+
+                Result = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "GetParticipant", arParms);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Cannot get information.", ex);
+            }
+            finally
+            {
+                if (connection != null)
+                    connection.Dispose();
+            }
+
+            if (Result.Tables.Count > 0)
+            {
+                DataTable dt = Result.Tables[0];
+                if (dt.Rows.Count > 0)
+                {
+                    obj = new Participant();
+                    obj.Email = dt.Rows[0]["Email"].ToString();
+                    obj.Password = dt.Rows[0]["Password"].ToString();
+                    obj.FirstName = dt.Rows[0]["FirstName"].ToString();
+                    obj.LastName = dt.Rows[0]["LastName"].ToString();
+                }
+            }
+
+            return obj;
         }
     }
 }

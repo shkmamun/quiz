@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace Quiz
 {
-    public partial class _Default : ParticipantPage 
+    public partial class UnAuth : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //
+
         }
     }
 }

@@ -7,7 +7,9 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 
 namespace Quiz
@@ -25,25 +27,27 @@ namespace Quiz
         {
 
             string ranString = UtilityManager.CreateRandomString(16);
-            Participant part = new Participant
-            {
+            Participant part = new Participant();
+            
                 
-                Address = txtAddress.Text,
-                Age = UtilityManager.GetAgeYear(wcDOB.SelectedDate),
-                City = txtCity.Text,
-                DateOfBirth = wcDOB.SelectedDate,
-                Device = BrowserAttributes[1,2],
-                Email = txtEmail.Text,
-                FirstName = txtFirstName.Text,
-                LastName = txtLastName.Text,
-                Gender = ddlGender.SelectedItem.Value,
-                IPAddress = UtilityManager.GetIpAddress(),
-                Organization = txtOrganization.Text,
-                ParticipantId = 0,
-                Phone = txtPhone.Text,
-                Profession = txtProfession.Text,
-                RefCode = ranString
-            };
+               part.Address = txtAddress.Text;
+                part.Age = UtilityManager.GetAgeYear(wcDOB.SelectedDate);
+                part.City = txtCity.Text;
+                part.DateOfBirth = wcDOB.SelectedDate;
+                part.Device = BrowserAttributes[1,2];
+                part.Email = txtEmail.Text;
+                part.FirstName = txtFirstName.Text;
+                part.LastName = txtLastName.Text;
+                part.Gender = ddlGender.SelectedItem.Value;
+                part.IPAddress = UtilityManager.GetIpAddress();
+                part.Organization = txtOrganization.Text;
+                part.ParticipantId = 0;
+                part.Phone = txtPhone.Text;
+                part.Profession = txtProfession.Text;
+                part.RefCode = ranString;               
+                part.Password = Password.Text.Trim();
+                part.Platform = GetClientPlatform();
+
 
             DBGateway db = new DBGateway();
             db.InsertParticipant(part);
@@ -64,23 +68,29 @@ namespace Quiz
 
                 body = body.Replace("{!FullName!}", part.FirstName + " " + part.LastName);
               
-                DBGateway db = new DBGateway();
-                Contest contest = db.GetActiveContest();
-                if (contest != null)
-                {
-                    string fullLink  =CreateLink(part.RefCode);
-                    body = body.Replace("{!Link!}", fullLink);
-                    body = body.Replace("{!URLLINK!}", fullLink);
-                    body = body.Replace("{!Display!}", "showpanel");
-                    body = body.Replace("{!TestMessage!}", GetMessage(Quiz.Utility.EnumType.MessageType.GeneralMessage, contest));
-                    body = body.Replace("{!DisplayMesasge!}", "hidepanel");
-                }
-                else
-                {
-                    body = body.Replace("{!DisplayMesasge!}", "showpanel");
-                    body = body.Replace("{!Display!}", "hidepanel");
-                    body = body.Replace("{!Message!}", GetMessage(Quiz.Utility.EnumType.MessageType.TestMessage));
-                }
+                //DBGateway db = new DBGateway();
+                //Contest contest = db.GetActiveContest();
+                //if (contest != null)
+                //{
+                //    string fullLink  =CreateLink(part.RefCode);
+                //    body = body.Replace("{!Link!}", fullLink);
+                //    body = body.Replace("{!URLLINK!}", fullLink);
+                //    body = body.Replace("{!Display!}", "showpanel");
+                //    body = body.Replace("{!TestMessage!}", GetMessage(Quiz.Utility.EnumType.MessageType.GeneralMessage, contest));
+                //    body = body.Replace("{!DisplayMesasge!}", "hidepanel");
+                //}
+                //else
+                //{
+                //    body = body.Replace("{!DisplayMesasge!}", "showpanel");
+                //    body = body.Replace("{!Display!}", "hidepanel");
+                //    body = body.Replace("{!Message!}", GetMessage(Quiz.Utility.EnumType.MessageType.TestMessage));
+                //}
+
+                string fullLink = CreateLink(part.RefCode);
+                body = body.Replace("{!Link!}", fullLink);
+                body = body.Replace("{!URLLINK!}", fullLink);
+                body = body.Replace("{!Display!}", "showpanel");               
+                body = body.Replace("{!DisplayMesasge!}", "hidepanel");
 
                 UtilityManager.SendEmail("equiz.mamun@gmail.com", "E Quiz", part.Email, "", "Registration info", body);
                 return true;
@@ -91,7 +101,12 @@ namespace Quiz
             }
             #endregion
         }
-
+        private string GetClientPlatform()
+        {
+            HttpBrowserCapabilities browse = Request.Browser;
+            string platform = browse.Platform;
+            return platform;
+        }
         private string CreateLink(string refCode)
         {
             string link = string.Empty;
@@ -246,6 +261,43 @@ namespace Quiz
                 }
                 catch { return String.Empty; }
             }
+        }
+
+        [WebMethod]
+        public static bool IsUserNameAvailable(string userName)
+        {
+            try
+            {
+                DBGateway db = new DBGateway();
+                bool isExist = db.CheckDuplicateEmail(userName);
+                return isExist;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        protected void IsUserNameValid(object source, ServerValidateEventArgs args)
+        {
+            string userName = args.Value;
+            try
+            {
+                DBGateway db = new DBGateway();
+                bool isExist = db.CheckDuplicateEmail(userName);
+                args.IsValid = !isExist;
+            }
+            catch
+            {
+                args.IsValid = false;
+            }
+        }
+
+        [WebMethod]
+        public static string CallMe()
+        {
+
+            return "You called me on " + DateTime.Now.ToString();
+
         }
         #endregion
 

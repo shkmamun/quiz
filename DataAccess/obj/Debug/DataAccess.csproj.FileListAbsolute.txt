@@ -5,3 +5,10 @@ F:\Developed Projects\Quiz\DataAccess\obj\Debug\DataAccess.dll
 F:\Developed Projects\Quiz\DataAccess\obj\Debug\DataAccess.pdb
 F:\Developed Projects\Quiz\DataAccess\bin\Debug\Entity.dll
 F:\Developed Projects\Quiz\DataAccess\bin\Debug\Entity.pdb
+E:\Developed Projects\Quiz\DataAccess\bin\Debug\DataAccess.dll
+E:\Developed Projects\Quiz\DataAccess\bin\Debug\DataAccess.pdb
+E:\Developed Projects\Quiz\DataAccess\bin\Debug\Entity.dll
+E:\Developed Projects\Quiz\DataAccess\bin\Debug\Entity.pdb
+E:\Developed Projects\Quiz\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+E:\Developed Projects\Quiz\DataAccess\obj\Debug\DataAccess.dll
+E:\Developed Projects\Quiz\DataAccess\obj\Debug\DataAccess.pdb

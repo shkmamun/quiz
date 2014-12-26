@@ -31,10 +31,10 @@
         args.IsValid = (ddlDay.selectedIndex != 0 && ddlMonth.selectedIndex != 0 && ddlYear.selectedIndex != 0)
     }
 </script>
-
-Year:<asp:DropDownList ID="ddlYear" runat="server" onchange="PopulateDays()" />
-Month:<asp:DropDownList ID="ddlMonth" runat="server" onchange="PopulateDays()" />
-Day:<asp:DropDownList ID="ddlDay" runat="server" />
+ 
+<asp:DropDownList ID="ddlYear" runat="server" CssClass="form-control" style="width:90px; display:inline" onchange="PopulateDays()" /> &nbsp;
+<asp:DropDownList ID="ddlMonth" runat="server" CssClass="form-control" style="width:85px; display:inline" onchange="PopulateDays()" />&nbsp;
+<asp:DropDownList ID="ddlDay" runat="server" CssClass="form-control" style="width:85px; display:inline" />
 <br />
 <asp:CustomValidator ID="Validator" runat="server" ErrorMessage="The date of birth is required"  CssClass="text-danger"
     ClientValidationFunction="Validate" />
