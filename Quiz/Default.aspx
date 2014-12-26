@@ -7,7 +7,7 @@
 
         <div>
             Currently Running Quiz
-            <table>
+            <table border="1">
                 <tr>
                     <th>Quiz Id</th>
                     <th>Quiz Type</th>
@@ -21,7 +21,7 @@
                     <td>Taken</td>
                 </tr>
                 <tr>
-                    <td>1</td>
+                    <td>2</td>
                     <td>Hourly</td>
                     <td>10</td>
                     <td>Taken</td>
