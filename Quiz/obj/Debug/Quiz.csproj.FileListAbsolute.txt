@@ -48,3 +48,28 @@ E:\Developed Projects\Quiz\Quiz\bin\Microsoft.AspNet.FriendlyUrls.xml
 E:\Developed Projects\Quiz\Quiz\obj\Debug\Quiz.csprojResolveAssemblyReference.cache
 E:\Developed Projects\Quiz\Quiz\obj\Debug\Quiz.dll
 E:\Developed Projects\Quiz\Quiz\obj\Debug\Quiz.pdb
+E:\Mamun\ProgrammingPactice\QuizGit\quiz\Quiz\bin\Quiz.dll.config
+E:\Mamun\ProgrammingPactice\QuizGit\quiz\Quiz\bin\Quiz.dll
+E:\Mamun\ProgrammingPactice\QuizGit\quiz\Quiz\bin\Quiz.pdb
+E:\Mamun\ProgrammingPactice\QuizGit\quiz\Quiz\bin\Antlr3.Runtime.dll
+E:\Mamun\ProgrammingPactice\QuizGit\quiz\Quiz\bin\AspNet.ScriptManager.bootstrap.dll
+E:\Mamun\ProgrammingPactice\QuizGit\quiz\Quiz\bin\AspNet.ScriptManager.jQuery.dll
+E:\Mamun\ProgrammingPactice\QuizGit\quiz\Quiz\bin\DataAccess.dll
+E:\Mamun\ProgrammingPactice\QuizGit\quiz\Quiz\bin\Entity.dll
+E:\Mamun\ProgrammingPactice\QuizGit\quiz\Quiz\bin\Microsoft.AspNet.FriendlyUrls.dll
+E:\Mamun\ProgrammingPactice\QuizGit\quiz\Quiz\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+E:\Mamun\ProgrammingPactice\QuizGit\quiz\Quiz\bin\Microsoft.ScriptManager.MSAjax.dll
+E:\Mamun\ProgrammingPactice\QuizGit\quiz\Quiz\bin\Microsoft.ScriptManager.WebForms.dll
+E:\Mamun\ProgrammingPactice\QuizGit\quiz\Quiz\bin\Microsoft.Web.Infrastructure.dll
+E:\Mamun\ProgrammingPactice\QuizGit\quiz\Quiz\bin\Newtonsoft.Json.dll
+E:\Mamun\ProgrammingPactice\QuizGit\quiz\Quiz\bin\System.Web.Optimization.dll
+E:\Mamun\ProgrammingPactice\QuizGit\quiz\Quiz\bin\WebGrease.dll
+E:\Mamun\ProgrammingPactice\QuizGit\quiz\Quiz\bin\DataAccess.pdb
+E:\Mamun\ProgrammingPactice\QuizGit\quiz\Quiz\bin\Entity.pdb
+E:\Mamun\ProgrammingPactice\QuizGit\quiz\Quiz\bin\System.Web.Optimization.xml
+E:\Mamun\ProgrammingPactice\QuizGit\quiz\Quiz\bin\Antlr3.Runtime.pdb
+E:\Mamun\ProgrammingPactice\QuizGit\quiz\Quiz\bin\Newtonsoft.Json.xml
+E:\Mamun\ProgrammingPactice\QuizGit\quiz\Quiz\bin\Microsoft.AspNet.FriendlyUrls.xml
+E:\Mamun\ProgrammingPactice\QuizGit\quiz\Quiz\obj\Debug\Quiz.csprojResolveAssemblyReference.cache
+E:\Mamun\ProgrammingPactice\QuizGit\quiz\Quiz\obj\Debug\Quiz.dll
+E:\Mamun\ProgrammingPactice\QuizGit\quiz\Quiz\obj\Debug\Quiz.pdb

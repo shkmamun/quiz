@@ -12,3 +12,10 @@ E:\Developed Projects\Quiz\DataAccess\bin\Debug\Entity.pdb
 E:\Developed Projects\Quiz\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
 E:\Developed Projects\Quiz\DataAccess\obj\Debug\DataAccess.dll
 E:\Developed Projects\Quiz\DataAccess\obj\Debug\DataAccess.pdb
+E:\Mamun\ProgrammingPactice\QuizGit\quiz\DataAccess\bin\Debug\DataAccess.dll
+E:\Mamun\ProgrammingPactice\QuizGit\quiz\DataAccess\bin\Debug\DataAccess.pdb
+E:\Mamun\ProgrammingPactice\QuizGit\quiz\DataAccess\bin\Debug\Entity.dll
+E:\Mamun\ProgrammingPactice\QuizGit\quiz\DataAccess\bin\Debug\Entity.pdb
+E:\Mamun\ProgrammingPactice\QuizGit\quiz\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+E:\Mamun\ProgrammingPactice\QuizGit\quiz\DataAccess\obj\Debug\DataAccess.dll
+E:\Mamun\ProgrammingPactice\QuizGit\quiz\DataAccess\obj\Debug\DataAccess.pdb
