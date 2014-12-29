@@ -62,26 +62,26 @@ namespace Quiz
                 if (!string.IsNullOrWhiteSpace(UserName.Text) && !string.IsNullOrWhiteSpace(Password.Text))
                 {
                     DBGateway db = new DBGateway();
-                    var obj = db.GetParticipant(UserName.Text);
-                    if (obj != null)
-                    {
-                       if( obj.Password.CompareTo(Password.Text.Trim())!=0)
-                       {
+                    user = db.GetLoginInfo(UserName.Text);
+                    //if (obj != null)
+                    //{
+                    //   if( obj.Password.CompareTo(Password.Text.Trim())!=0)
+                    //   {
 
-                       }
-                       else
-                       {
-                           user = new UserInfo();
-                           user.LoginName = obj.Email;
-                           user.Password = obj.Password;
-                           user.UserName = obj.FirstName+" "+obj.LastName;
-                           user.Email = obj.Email;
-                           user.RoleId = 0;
-                       }
-                    }
+                    //   }
+                    //   else
+                    //   {
+                    //       user = new UserInfo();
+                    //       user.LoginName = obj.Email;
+                    //       user.Password = obj.Password;
+                    //       user.UserName = obj.FirstName+" "+obj.LastName;
+                    //       user.Email = obj.Email;
+                    //       user.RoleId = 0;
+                    //   }
+                    //}
                 }
 
-                if (user != null)
+                if (user != null && user.Password.CompareTo(Password.Text.Trim()) == 0)
                 {
                     LoginInfo.SetLoginInfo(user);
                     FormsAuthentication.RedirectFromLoginPage(user.UserName, true);
@@ -107,7 +107,7 @@ namespace Quiz
 
         private void RedirectToReturnUrl(string returnUrl, HttpResponse response)
         {
-            if (!String.IsNullOrEmpty(returnUrl) && IsLocalUrl(returnUrl))
+            if (!String.IsNullOrEmpty(returnUrl) )//&& IsLocalUrl(returnUrl))
             {
                 response.Redirect(returnUrl);
             }

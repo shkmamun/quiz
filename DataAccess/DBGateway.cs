@@ -96,11 +96,11 @@ namespace DataAccess
 
             return 0;
         }
-       public int ActivateParticipant(string RefCode)
+        public int ActivateParticipant(string RefCode)
         {
             SqlConnection connection = null;
             int Result = 0;
-           
+
             try
             {
                 SqlParameter[] arParms = new SqlParameter[1];
@@ -123,7 +123,7 @@ namespace DataAccess
                 if (connection != null)
                     connection.Dispose();
             }
-                     
+
 
             return Result;
         }
@@ -219,7 +219,7 @@ namespace DataAccess
                     obj.CurrAnsNo = Convert.ToInt32(dt.Rows[0]["CurrAnsNo"].ToString());
                     obj.NumOfQuestion = Convert.ToInt32(dt.Rows[0]["NumOfQuestion"].ToString());
                     obj.ContestId = Convert.ToInt32(dt.Rows[0]["ContestId"].ToString());
-                    
+
                 }
             }
 
@@ -248,7 +248,7 @@ namespace DataAccess
 
                 arParms[4] = new SqlParameter("@ContestId", SqlDbType.Int);
                 arParms[4].Value = obj.ContestId;
-                 
+
 
                 connection = GetConnection();
 
@@ -671,14 +671,14 @@ namespace DataAccess
         {
             bool isExist = false;
             SqlConnection connection = null;
-            DataSet Result;          
+            DataSet Result;
 
             try
             {
                 SqlParameter[] arParms = new SqlParameter[1];
 
                 arParms[0] = new SqlParameter("@Email", SqlDbType.VarChar, 100);
-                arParms[0].Value = userName;                 
+                arParms[0].Value = userName;
 
                 connection = GetConnection();
 
@@ -699,16 +699,16 @@ namespace DataAccess
             if (Result.Tables.Count > 0)
             {
                 DataTable dt = Result.Tables[0];
-               if(dt.Rows.Count>0)
-               {
-                   isExist = true;
-               }
-               
+                if (dt.Rows.Count > 0)
+                {
+                    isExist = true;
+                }
+
 
             }
 
             return isExist;
- 
+
         }
 
         public Participant GetParticipant(string userName)
@@ -723,7 +723,7 @@ namespace DataAccess
 
                 arParms[0] = new SqlParameter("@userName", SqlDbType.VarChar, 100);
                 arParms[0].Value = userName;
- 
+
 
                 connection = GetConnection();
 
@@ -751,6 +751,53 @@ namespace DataAccess
                     obj.Password = dt.Rows[0]["Password"].ToString();
                     obj.FirstName = dt.Rows[0]["FirstName"].ToString();
                     obj.LastName = dt.Rows[0]["LastName"].ToString();
+                }
+            }
+
+            return obj;
+        }
+        public UserInfo GetLoginInfo(string userName)
+        {
+            SqlConnection connection = null;
+            DataSet Result;
+            UserInfo obj = null;
+
+            try
+            {
+                SqlParameter[] arParms = new SqlParameter[1];
+
+                arParms[0] = new SqlParameter("@userName", SqlDbType.VarChar, 100);
+                arParms[0].Value = userName;
+
+                connection = GetConnection();
+
+                Result = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "GetLoginInfo", arParms);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Cannot get information.", ex);
+            }
+            finally
+            {
+                if (connection != null)
+                    connection.Dispose();
+            }
+
+            if (Result.Tables.Count > 0)
+            {
+                DataTable dt = Result.Tables[0];
+                if (dt.Rows.Count > 0)
+                {
+                    obj = new UserInfo();
+
+                    obj.LoginName = dt.Rows[0]["LoginName"].ToString();
+                    obj.Password = dt.Rows[0]["Password"].ToString();
+                    obj.UserName = dt.Rows[0]["UserName"].ToString();
+                    obj.Email = dt.Rows[0]["Email"].ToString();
+                    obj.RoleId = Convert.ToInt32(dt.Rows[0]["RoleId"].ToString());
+
                 }
             }
 

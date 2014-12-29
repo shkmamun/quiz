@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -22,18 +23,11 @@ namespace Quiz
             {
                 if (HttpContext.Current.Session["userinfo"] == null)
                 {
-                    HttpContext.Current.Response.Redirect("~/Login.aspx");
+                    HttpContext.Current.Response.Redirect("~/Login.aspx/?ReturnURL="+HttpContext.Current.Request.Url.AbsoluteUri);
                 }
                 return (UserInfo)HttpContext.Current.Session["userinfo"];
             }
         }
     }
-    public class UserInfo
-    {
-        public string LoginName { set; get; }
-        public string UserName { set; get; }
-        public string Password { set; get; }
-        public string Email { set; get; }
-        public int RoleId { set; get; }
-    }
+
 }
