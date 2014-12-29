@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Quiz {
+namespace Quiz.Admin {
     
     
     public partial class Questions {

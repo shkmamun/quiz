@@ -117,7 +117,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Admin\Admin.Master" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Questions.aspx" />
+    <Content Include="Admin\Questions.aspx" />
     <Content Include="QuizRun.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="RegistrationConfirmation.aspx" />
@@ -260,11 +260,11 @@
       <DependentUpon>Manage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Questions.aspx.cs">
+    <Compile Include="Admin\Questions.aspx.cs">
       <DependentUpon>Questions.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Questions.aspx.designer.cs">
+    <Compile Include="Admin\Questions.aspx.designer.cs">
       <DependentUpon>Questions.aspx</DependentUpon>
     </Compile>
     <Compile Include="QuizRun.aspx.cs">

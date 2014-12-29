@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Quiz
+namespace Quiz.Admin
 {
     public partial class Questions : System.Web.UI.Page
     {
