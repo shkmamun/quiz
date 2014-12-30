@@ -23,7 +23,7 @@ namespace Quiz
             {
                 if (HttpContext.Current.Session["userinfo"] == null)
                 {
-                    HttpContext.Current.Response.Redirect("~/Login.aspx/?ReturnURL="+HttpContext.Current.Request.Url.AbsoluteUri);
+                    HttpContext.Current.Response.Redirect("~/Login.aspx/?ReturnURL="+HttpContext.Current.Request.Url.AbsolutePath);
                 }
                 return (UserInfo)HttpContext.Current.Session["userinfo"];
             }
