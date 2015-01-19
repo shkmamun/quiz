@@ -190,7 +190,6 @@
     <Content Include="Templates\RegistrationEmailTemplate.html" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\Shared\RazorView.aspx" />
-    <Content Include="Views\Shared\WebForm1.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -369,13 +368,6 @@
     </Compile>
     <Compile Include="Views\Shared\RazorView.aspx.designer.cs">
       <DependentUpon>RazorView.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Shared\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Shared\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
