@@ -55,6 +55,8 @@
                         <li><a runat="server" href="~/About">About</a></li>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
                         <li><a runat="server" href="~/Admin/Questions">Question</a></li>
+                         <li><a runat="server" href="~/Programme">Programme</a></li>
+    
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">

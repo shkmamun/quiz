@@ -73,3 +73,15 @@ E:\Mamun\ProgrammingPactice\QuizGit\quiz\Quiz\bin\Microsoft.AspNet.FriendlyUrls.
 E:\Mamun\ProgrammingPactice\QuizGit\quiz\Quiz\obj\Debug\Quiz.csprojResolveAssemblyReference.cache
 E:\Mamun\ProgrammingPactice\QuizGit\quiz\Quiz\obj\Debug\Quiz.dll
 E:\Mamun\ProgrammingPactice\QuizGit\quiz\Quiz\obj\Debug\Quiz.pdb
+E:\Developed Projects\Quiz\Quiz\bin\System.Web.Helpers.dll
+E:\Developed Projects\Quiz\Quiz\bin\System.Web.Mvc.dll
+E:\Developed Projects\Quiz\Quiz\bin\System.Web.Razor.dll
+E:\Developed Projects\Quiz\Quiz\bin\System.Web.WebPages.Deployment.dll
+E:\Developed Projects\Quiz\Quiz\bin\System.Web.WebPages.dll
+E:\Developed Projects\Quiz\Quiz\bin\System.Web.WebPages.Razor.dll
+E:\Developed Projects\Quiz\Quiz\bin\System.Web.Helpers.xml
+E:\Developed Projects\Quiz\Quiz\bin\System.Web.Mvc.xml
+E:\Developed Projects\Quiz\Quiz\bin\System.Web.Razor.xml
+E:\Developed Projects\Quiz\Quiz\bin\System.Web.WebPages.xml
+E:\Developed Projects\Quiz\Quiz\bin\System.Web.WebPages.Deployment.xml
+E:\Developed Projects\Quiz\Quiz\bin\System.Web.WebPages.Razor.xml

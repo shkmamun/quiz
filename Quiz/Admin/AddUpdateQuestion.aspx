@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AddUpdateQuestion.aspx.cs" Inherits="Quiz.AddUpdateQuestion" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="AddUpdateQuestion.aspx.cs" Inherits="Quiz.Admin.AddUpdateQuestion" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="form-horizontal">
@@ -138,6 +138,7 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <asp:Button runat="server" OnClick="btnSubmit_Click" Text="Submit" CssClass="btn btn-default" ID="btnSubmit" />
+                 <asp:Button runat="server" PostBackUrl="~/Admin/Question.aspx" Text="Cancel" CssClass="btn btn-default" ID="btnCancel" />
             </div>
         </div>
     </div>

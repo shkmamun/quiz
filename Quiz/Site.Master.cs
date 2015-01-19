@@ -13,8 +13,10 @@ namespace Quiz
         {
             if (!Page.IsPostBack)
             {
-
-                this.lblWelcome.Text = "Welcome " + LoginInfo.Current.UserName.ToString();
+                if (LoginInfo.Current != null)
+                {
+                    this.lblWelcome.Text = "Welcome " + LoginInfo.Current.UserName.ToString();
+                }
             }
 
         }

@@ -803,5 +803,110 @@ namespace DataAccess
 
             return obj;
         }
+
+        public List<Programme> GetAllProgramme(int id = 0)
+        {
+            SqlConnection connection = null;
+            DataSet Result;
+            List<Programme> list = new List<Programme>();
+
+            try
+            {
+                SqlParameter[] arParms = new SqlParameter[1];
+
+                arParms[0] = new SqlParameter("@id", SqlDbType.VarChar, 100);
+                arParms[0].Value = id;
+
+                connection = GetConnection();
+
+                Result = SqlHelper.ExecuteDataset(connection, CommandType.StoredProcedure, "GetAllProgramme", arParms);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Cannot get information.", ex);
+            }
+            finally
+            {
+                if (connection != null)
+                    connection.Dispose();
+            }
+
+            if (Result.Tables.Count > 0)
+            {
+                DataTable dt = Result.Tables[0];
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    Programme obj = new Programme();
+
+                    obj.ProgrammeId = Convert.ToInt32(row["ProgrammeId"].ToString());
+                    obj.ProgrammeName = row["ProgrammeName"].ToString();
+                    obj.StartDate = Convert.ToDateTime(row["StartDate"].ToString());
+                    obj.EndDate = Convert.ToDateTime(row["EndDate"].ToString());
+                    obj.NumOfQuestion = Convert.ToInt32(row["NumOfQuestion"].ToString());
+                    obj.TimeLimit = Convert.ToInt32(row["TimeLimit"].ToString());
+                    obj.IsHourly = Convert.ToBoolean(row["IsHourly"].ToString());
+                    obj.IsActive = Convert.ToBoolean(row["IsActive"].ToString());
+
+                    list.Add(obj);
+                }
+            }
+
+            return list;
+        }
+
+        public int InsertProgramme(Programme obj)
+        {
+            SqlConnection connection = null;
+
+            try
+            {
+                SqlParameter[] arParms = new SqlParameter[8];
+
+                arParms[0] = new SqlParameter("@ProgrammeName", SqlDbType.VarChar, 100);
+                arParms[0].Value = obj.ProgrammeName;
+
+                arParms[1] = new SqlParameter("@StartDate", SqlDbType.DateTime);
+                arParms[1].Value = obj.StartDate;
+
+                arParms[2] = new SqlParameter("@EndDate", SqlDbType.DateTime);
+                arParms[2].Value = obj.EndDate;
+
+                arParms[3] = new SqlParameter("@NumOfQuestion", SqlDbType.Int);
+                arParms[3].Value = obj.NumOfQuestion;
+
+                arParms[4] = new SqlParameter("@TimeLimit", SqlDbType.Int);
+                arParms[4].Value = obj.TimeLimit;
+
+                arParms[5] = new SqlParameter("@IsHourly", SqlDbType.Bit);
+                arParms[5].Value = obj.IsHourly;
+
+                arParms[6] = new SqlParameter("@IsActive", SqlDbType.Bit);
+                arParms[6].Value = obj.IsActive;
+
+                arParms[7] = new SqlParameter("@ProgrammeId", SqlDbType.Int);
+                arParms[7].Value = obj.ProgrammeId;
+               
+                connection = GetConnection();
+
+                int id = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "InsertUpdateProgramme", arParms);
+
+                return id;
+
+            }
+
+            catch (Exception ex)
+            {
+                throw new Exception("Cannot Add", ex);
+            }
+            finally
+            {
+                if (connection != null)
+                    connection.Dispose();
+            }
+            return 0;
+        }
     }
 }

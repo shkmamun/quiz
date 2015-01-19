@@ -116,7 +116,7 @@
             <asp:Label runat="server" AssociatedControlID="txtFirstName" CssClass="col-md-2 control-label">First Name <span class="mendatory"> (*)</span></asp:Label>
             <div class="col-md-10">
                 <asp:TextBox runat="server" ID="txtFirstName" CssClass="form-control" />
-                <asp:RequiredFieldValidator runat="server" ControlToValidate="txtFirstName" InitialValue="*"
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="txtFirstName" 
                     CssClass="text-danger" ErrorMessage="The first name field is required." />
             </div>
         </div>

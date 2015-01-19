@@ -127,3 +127,9 @@ textarea {
         float: left;
         width: 80px;
     }
+table td{
+    padding: 2px 5px;
+}
+.td-input{
+    width:175px;
+}

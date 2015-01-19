@@ -40,15 +40,6 @@ namespace Quiz.Admin {
         protected global::System.Web.UI.WebControls.DropDownList ddlPriority;
         
         /// <summary>
-        /// ddlDifficulty control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDifficulty;
-        
-        /// <summary>
         /// txtQuestion control.
         /// </summary>
         /// <remarks>
@@ -65,6 +56,15 @@ namespace Quiz.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlActive;
+        
+        /// <summary>
+        /// ddlDifficulty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDifficulty;
         
         /// <summary>
         /// btnSubmit control.

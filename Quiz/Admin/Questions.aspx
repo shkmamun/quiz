@@ -5,16 +5,17 @@
     <asp:Panel ID="pnlQuestions" runat="server">
         <fieldset>
             <legend>Search Questions</legend>
-            <table>
+            <table >
                 <tr>
                     <td>Category</td>
-                    <td>
+                    <td class="td-input">
                         <asp:DropDownList ID="ddlCategories" runat="server" CssClass="form-control" DataTextField="CategoryName" DataValueField="CategoryId">
                             <asp:ListItem Text="-Select-" Value="0" />
-                        </asp:DropDownList></td>
-                    <td>Priority</td>
-                    <td>
+                        </asp:DropDownList>
 
+                    </td>
+                    <td>Priority</td>
+                    <td class="td-input">
                         <asp:DropDownList ID="ddlPriority" runat="server" CssClass="form-control">
                             <asp:ListItem Text="-Select-" Value="0" />
                             <asp:ListItem Text="1" Value="1" />
@@ -29,21 +30,7 @@
                             <asp:ListItem Text="10" Value="10" />
                         </asp:DropDownList>
                     </td>
-                    <td>Difficulty</td>
-                    <td>
-                        <asp:DropDownList ID="ddlDifficulty" runat="server" CssClass="form-control">
-                            <asp:ListItem Text="-Select-" Value="0" />
-                            <asp:ListItem Text="Level 1" Value="1" />
-                            <asp:ListItem Text="Level 2" Value="2" />
-                            <asp:ListItem Text="Level 3" Value="3" />
-                            <asp:ListItem Text="Level 4" Value="4" />
-                            <asp:ListItem Text="Level 5" Value="5" />
-                            <asp:ListItem Text="Level 6" Value="6" />
-                            <asp:ListItem Text="Level 7" Value="7" />
-                            <asp:ListItem Text="Level 8" Value="8" />
-                            <asp:ListItem Text="Level 9" Value="9" />
-                            <asp:ListItem Text="Level 10" Value="10" />
-                        </asp:DropDownList></td>
+
                 </tr>
                 <tr>
                     <td>Question</td>
@@ -60,16 +47,39 @@
 
                 </tr>
                 <tr>
-                    <td></td>
+                    <td>Difficulty</td>
                     <td>
+                        <asp:DropDownList ID="ddlDifficulty" runat="server" CssClass="form-control">
+                            <asp:ListItem Text="-Select-" Value="0" />
+                            <asp:ListItem Text="Level 1" Value="1" />
+                            <asp:ListItem Text="Level 2" Value="2" />
+                            <asp:ListItem Text="Level 3" Value="3" />
+                            <asp:ListItem Text="Level 4" Value="4" />
+                            <asp:ListItem Text="Level 5" Value="5" />
+                            <asp:ListItem Text="Level 6" Value="6" />
+                            <asp:ListItem Text="Level 7" Value="7" />
+                            <asp:ListItem Text="Level 8" Value="8" />
+                            <asp:ListItem Text="Level 9" Value="9" />
+                            <asp:ListItem Text="Level 10" Value="10" />
+                        </asp:DropDownList>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                     <td>&nbsp;</td>
+                    <td colspan="3"> 
                         <asp:Button runat="server" OnClick="btnSubmit_Click" Text="Search" CssClass="btn btn-default" ID="btnSubmit" /> 
-                    <asp:Button runat="server"  Text="Add" CssClass="btn btn-default" ID="btnAdd" PostBackUrl="~/AddUpdateQuestion.aspx" /></td>
+                    <asp:Button runat="server"  Text="Add" CssClass="btn btn-default" ID="btnAdd" PostBackUrl="~/Admin/AddUpdateQuestion.aspx" />
+
+                    </td>
                 </tr>
             </table>
 
         </fieldset>
     </asp:Panel>
-    <asp:GridView ID="gvwQuestions" runat="server" AutoGenerateColumns="false" GridLines="None" CssClass="Grid" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr" AllowPaging="true" PageSize="8" OnPageIndexChanging="gvwQuestions_PageIndexChanging">
+    <br />
+    <asp:GridView ID="gvwQuestions" runat="server" AutoGenerateColumns="false" GridLines="None" CssClass="Grid" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr" AllowPaging="true" PageSize="20" OnPageIndexChanging="gvwQuestions_PageIndexChanging">
         <Columns>
             <asp:TemplateField HeaderText="Action">
                 <ItemTemplate>
