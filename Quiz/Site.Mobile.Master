@@ -12,6 +12,38 @@
     <form id="form1" runat="server">
     <div>
         <h1>Mobile Master Page</h1>
+                <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" runat="server" href="~/">SmarTest Quiz</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                       
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li> 
+                            <asp:LinkButton runat="server" ID="lblWelcome" PostBackUrl="~/Manage.aspx" Text="" title="Manage your account"></asp:LinkButton>
+                           
+                        </li>
+
+                        <li>
+                            <asp:LinkButton runat="server" ID="lnkAdmin" Text="Admin"  PostBackUrl="~/Admin/Default.aspx"></asp:LinkButton>
+                        </li>
+                        <li>
+                            <asp:LinkButton runat="server" ID="lnkSignOut" Text="Sign Out" OnClick="lnkSignOut_Click"></asp:LinkButton>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
         <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
         <section class="content-wrapper main-content clear-fix">
             <asp:ContentPlaceHolder runat="server" ID="MainContent" />
