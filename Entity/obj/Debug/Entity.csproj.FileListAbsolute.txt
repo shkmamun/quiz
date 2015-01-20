@@ -12,3 +12,6 @@ E:\Mamun\ProgrammingPactice\QuizGit\quiz\Entity\bin\Debug\Entity.pdb
 E:\Mamun\ProgrammingPactice\QuizGit\quiz\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
 E:\Mamun\ProgrammingPactice\QuizGit\quiz\Entity\obj\Debug\Entity.dll
 E:\Mamun\ProgrammingPactice\QuizGit\quiz\Entity\obj\Debug\Entity.pdb
+E:\Developed Projects\Quiz\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
+E:\Developed Projects\Quiz\Entity\bin\Debug\System.Web.Mvc.dll
+E:\Developed Projects\Quiz\Entity\bin\Debug\System.Web.Mvc.xml
