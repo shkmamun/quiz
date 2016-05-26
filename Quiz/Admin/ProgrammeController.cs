@@ -19,6 +19,49 @@ namespace Quiz.Admin
             return this.RazorView(model);
             //return View();
         }
+        [HttpPost]
+        public ActionResult Index(FormCollection coll)
+        {
+            string programmeName = coll["ProgrammeName"];
+            DateTime startDate= new DateTime();
+            if (!String.IsNullOrWhiteSpace(coll["StartDate"]))
+            {
+                startDate = Convert.ToDateTime(coll["StartDate"]);
+            }
+            DateTime endDate = new DateTime();
+            if (!String.IsNullOrWhiteSpace(coll["EndDate"]))
+            {
+                 endDate = Convert.ToDateTime(coll["EndDate"]);
+            }
+            bool isActive = Convert.ToBoolean(coll["IsActive"]);
+            bool isHourly = Convert.ToBoolean(coll["IsHourly"]);
+
+            DBGateway db = new DBGateway();
+            IList<Programme> model = db.GetAllProgramme(0);
+
+            if (!String.IsNullOrWhiteSpace(programmeName))
+            {
+                model = model.Where(m => m.ProgrammeName.Contains(programmeName)).ToList();
+            }
+            if (!String.IsNullOrWhiteSpace(coll["StartDate"]))
+            {
+                model = model.Where(m => m.StartDate >= startDate).ToList();
+            }
+            if (!String.IsNullOrWhiteSpace(coll["EndDate"]))
+            {
+                model = model.Where(m => m.EndDate <= endDate).ToList();
+            }
+            if (!String.IsNullOrWhiteSpace(coll["IsActive"]))
+            {
+                model = model.Where(m => m.IsActive==isActive).ToList();
+            }
+            if (!String.IsNullOrWhiteSpace(coll["IsHourly"]))
+            {
+                model = model.Where(m => m.IsHourly == isHourly).ToList();
+            }
+            return this.RazorView(model);
+            //return View();
+        }
         public ActionResult Create()
         {
             return this.RazorView();

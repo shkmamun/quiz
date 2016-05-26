@@ -23,16 +23,13 @@
                     <a class="navbar-brand" runat="server" href="~/">SmarTest Quiz</a>
                 </div>
                 <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                       
+                    <ul class="nav navbar-nav">                       
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
                         <li> 
-                            <asp:LinkButton runat="server" ID="lblWelcome" PostBackUrl="~/Manage.aspx" Text="" title="Manage your account"></asp:LinkButton>
-                           
+                            <asp:LinkButton runat="server" ID="lblWelcome" PostBackUrl="~/Manage.aspx" Text="" title="Manage your account"></asp:LinkButton>                           
                         </li>
-
                         <li>
                             <asp:LinkButton runat="server" ID="lnkAdmin" Text="Admin"  PostBackUrl="~/Admin/Default.aspx"></asp:LinkButton>
                         </li>

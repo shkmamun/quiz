@@ -1,8 +1,53 @@
 ﻿@model IEnumerable<Entity.Programme>
 
-<p>
+<div style="margin-top:10px;">
+
+    <form method="post" action="@Url.Action("Index", "Programme")">
+        <fieldset>
+            <legend>Search Programmes</legend>
+            <table>
+                <tr>
+                    <td>Programme Name</td>
+                    <td> 
+                        <input class="text-box single-line" data-val="true" id="ProgrammeName" name="ProgrammeName" type="text"></td>
+                </tr>
+                <tr>
+                    <td>Start Date</td>
+                    <td> <input class="text-box single-line" data-val="true" id="StartDate" name="StartDate" type="date"></td>
+                </tr>
+                <tr>
+                    <td>End Date</td>
+                    <td>
+                        <input class="text-box single-line" data-val="true"  id="EndDate" name="EndDate" type="date" >
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input  class="check-box" data-val="true"  id="IsActive" name="IsActive" type="checkbox" value="true" >
+                        <span>Is Active?</span> &nbsp;
+                        <input class="check-box" data-val="true" id="IsHourly" name="IsHourly" type="checkbox" value="true"> <span>Is Hourly?</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <input type="submit" value="Search" class="btn btn-default" id="btnSubmit">
+                        <input type="button" value="Add" class="btn btn-default" id="btnAdd" 
+                               onclick="location.href='@Url.Action("Create", "Programme")'">
+
+
+                    </td>
+                </tr>
+            </table>
+
+        </fieldset>
+
+    </form>
+</div>
+@*<p>
     @Html.ActionLink("Create New", "Create")
-</p>
+</p>*@
 <table class="table">
     <tr>
         <th>
@@ -29,35 +74,36 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProgrammeName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumOfQuestion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TimeLimit)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsHourly)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsActive)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProgrammeId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProgrammeId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProgrammeId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProgrammeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumOfQuestion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeLimit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsHourly)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProgrammeId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProgrammeId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProgrammeId })
+            </td>
+        </tr>
+    }
 
 </table>
