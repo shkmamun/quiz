@@ -59,7 +59,7 @@ namespace Quiz
             if (IsValid)
             {
                // UserInfo user = null;
-                UserInfo user = new UserInfo { LoginName = "mamun", Password = "mamun" };
+                UserInfo user = new UserInfo { LoginName = "mamun", Password = "mamun",UserName="mamun" };
                 //if (!string.IsNullOrWhiteSpace(UserName.Text) && !string.IsNullOrWhiteSpace(Password.Text))
                 //{
                 //    DBGateway db = new DBGateway();
@@ -84,8 +84,8 @@ namespace Quiz
 
                 if (user != null && user.Password.CompareTo(Password.Text.Trim()) == 0)
                 {
-                 //   LoginInfo.SetLoginInfo(user);
-                 //   FormsAuthentication.RedirectFromLoginPage(user.UserName, true);
+                    LoginInfo.SetLoginInfo(user);
+                    FormsAuthentication.RedirectFromLoginPage(user.UserName, true);
                    
                     RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
 
