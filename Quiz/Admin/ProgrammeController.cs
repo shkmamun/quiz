@@ -92,7 +92,50 @@ namespace Quiz.Admin
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+        public ActionResult Edit(int Id)
+        {
+            DBGateway db = new DBGateway();
+            Programme model = db.GetAllProgramme(Id).FirstOrDefault();
+
+            return this.RazorView(model);
+        }
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Programme model)
+        {
+            if (ModelState.IsValid)
+            {
+                var pro = new Programme()
+                {
+                    ProgrammeId = model.ProgrammeId,
+                    ProgrammeName = model.ProgrammeName,
+                    StartDate = model.StartDate,
+                    EndDate = model.EndDate,
+                    NumOfQuestion = model.NumOfQuestion,
+                    TimeLimit = model.TimeLimit,
+                    IsHourly = model.IsHourly,
+                    IsActive = model.IsActive
+                };
+
+                DBGateway db = new DBGateway();
+                int result = db.UpdateProgramme(pro);
+
+                if (result > 0)
+                {
+                    return RedirectToAction("Index", "Programme");
+                }
+                else
+                {
+                    ModelState.AddModelError("db", "Programme already exist with the same date.");
+                }
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
     }
+      
     public static class ControllerExtensions
     {
         public static ViewResult RazorView(this Controller controller)

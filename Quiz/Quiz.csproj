@@ -144,6 +144,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Admin\Admin.Master" />
+    <None Include="Properties\PublishProfiles\quiz123-AzureSqlConnection - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\quiz123.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Admin\Questions.aspx" />
@@ -206,6 +207,7 @@
     <Content Include="Views\web.config" />
     <Content Include="Views\Programme\Index.cshtml" />
     <Content Include="Views\Programme\Create.cshtml" />
+    <Content Include="Views\Programme\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

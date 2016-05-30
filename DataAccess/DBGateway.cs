@@ -888,10 +888,75 @@ namespace DataAccess
 
                 arParms[7] = new SqlParameter("@ProgrammeId", SqlDbType.Int);
                 arParms[7].Value = obj.ProgrammeId;
-               
+
                 connection = GetConnection();
 
                 int id = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "InsertUpdateProgramme", arParms);
+
+                return id;
+
+            }
+
+            catch (Exception ex)
+            {
+                throw new Exception("Cannot Add", ex);
+            }
+            finally
+            {
+                if (connection != null)
+                    connection.Dispose();
+            }
+            return 0;
+        }
+        public int UpdateProgramme(Programme obj)
+        {
+            SqlConnection connection = null;
+
+            try
+            {
+                //SqlParameter[] arParms = new SqlParameter[8];
+
+                //arParms[0] = new SqlParameter("@ProgrammeName", SqlDbType.VarChar, 100);
+                //arParms[0].Value = obj.ProgrammeName;
+
+                //arParms[1] = new SqlParameter("@StartDate", SqlDbType.DateTime);
+                //arParms[1].Value = obj.StartDate;
+
+                //arParms[2] = new SqlParameter("@EndDate", SqlDbType.DateTime);
+                //arParms[2].Value = obj.EndDate;
+
+                //arParms[3] = new SqlParameter("@NumOfQuestion", SqlDbType.Int);
+                //arParms[3].Value = obj.NumOfQuestion;
+
+                //arParms[4] = new SqlParameter("@TimeLimit", SqlDbType.Int);
+                //arParms[4].Value = obj.TimeLimit;
+
+                //arParms[5] = new SqlParameter("@IsHourly", SqlDbType.Bit);
+                //arParms[5].Value = obj.IsHourly;
+
+                //arParms[6] = new SqlParameter("@IsActive", SqlDbType.Bit);
+                //arParms[6].Value = obj.IsActive;
+
+                //arParms[7] = new SqlParameter("@ProgrammeId", SqlDbType.Int);
+                //arParms[7].Value = obj.ProgrammeId;
+
+                //connection = GetConnection();
+
+                //int id = SqlHelper.ExecuteNonQuery(connection, CommandType.StoredProcedure, "InsertUpdateProgramme", arParms);
+
+                //return id;
+                connection = GetConnection();
+                var sql = "UPDATE [dbo].[Programme]"
+                          + " SET [ProgrammeName] ='" + obj.ProgrammeName+"'"
+                          + ", [StartDate] = '" + obj.StartDate.ToShortDateString() + "'"
+                          + ", [EndDate] = '" + obj.EndDate.ToShortDateString() + "'"
+                          + ", [NumOfQuestion] = " + obj.NumOfQuestion
+                          + ", [TimeLimit] =" + obj.TimeLimit
+                          + ", [IsHourly] =" + (obj.IsHourly?1:0)
+                          + ", [IsActive] =" + (obj.IsActive ? 1 : 0)
+                          + " WHERE [ProgrammeId]  =" + obj.ProgrammeId;
+
+                int id = SqlHelper.ExecuteNonQuery(connection, CommandType.Text, sql);
 
                 return id;
 
