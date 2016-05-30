@@ -58,28 +58,29 @@ namespace Quiz
         {
             if (IsValid)
             {
-                UserInfo user = null;
-                if (!string.IsNullOrWhiteSpace(UserName.Text) && !string.IsNullOrWhiteSpace(Password.Text))
-                {
-                    DBGateway db = new DBGateway();
-                    user = db.GetLoginInfo(UserName.Text);
-                    //if (obj != null)
-                    //{
-                    //   if( obj.Password.CompareTo(Password.Text.Trim())!=0)
-                    //   {
+               // UserInfo user = null;
+                UserInfo user = new UserInfo { LoginName = "mamun", Password = "mamun" };
+                //if (!string.IsNullOrWhiteSpace(UserName.Text) && !string.IsNullOrWhiteSpace(Password.Text))
+                //{
+                //    DBGateway db = new DBGateway();
+                //    user = db.GetLoginInfo(UserName.Text);
+                //    //if (obj != null)
+                //    //{
+                //    //   if( obj.Password.CompareTo(Password.Text.Trim())!=0)
+                //    //   {
 
-                    //   }
-                    //   else
-                    //   {
-                    //       user = new UserInfo();
-                    //       user.LoginName = obj.Email;
-                    //       user.Password = obj.Password;
-                    //       user.UserName = obj.FirstName+" "+obj.LastName;
-                    //       user.Email = obj.Email;
-                    //       user.RoleId = 0;
-                    //   }
-                    //}
-                }
+                //    //   }
+                //    //   else
+                //    //   {
+                //    //       user = new UserInfo();
+                //    //       user.LoginName = obj.Email;
+                //    //       user.Password = obj.Password;
+                //    //       user.UserName = obj.FirstName+" "+obj.LastName;
+                //    //       user.Email = obj.Email;
+                //    //       user.RoleId = 0;
+                //    //   }
+                //    //}
+                //}
 
                 if (user != null && user.Password.CompareTo(Password.Text.Trim()) == 0)
                 {
