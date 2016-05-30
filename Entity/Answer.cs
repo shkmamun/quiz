@@ -12,7 +12,7 @@ namespace Entity
 
         public Int32 ParticipantId { get; set; }
 
-        public Int32 ContestId { get; set; }
+        public Int32 ProgrammeId { get; set; }
 
         public Int32 AnswerNo { get; set; }
 

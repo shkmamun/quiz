@@ -246,8 +246,8 @@ namespace DataAccess
                 arParms[3] = new SqlParameter("@TimeTaken", SqlDbType.Int);
                 arParms[3].Value = obj.TimeTaken;
 
-                arParms[4] = new SqlParameter("@ContestId", SqlDbType.Int);
-                arParms[4].Value = obj.ContestId;
+                arParms[4] = new SqlParameter("@ProgrammeId", SqlDbType.Int);
+                arParms[4].Value = obj.ProgrammeId;
 
 
                 connection = GetConnection();

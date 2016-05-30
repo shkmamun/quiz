@@ -63,7 +63,7 @@ namespace Quiz
             Answer obj = new Answer();
             obj.RefCode = refCode;
             obj.QuestionId = questionId;
-            obj.ContestId = ContestId;
+            obj.ProgrammeId = ContestId;
             obj.AnswerText = answer;
             obj.TimeTaken = TimeTaken;
 

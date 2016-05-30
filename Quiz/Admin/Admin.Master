@@ -48,6 +48,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" runat="server" href="~/">SmarTest Quiz</a>
+                     <a class="navbar-brand" runat="server" href="~/QuizRun.aspx?RefCode=BQAAAAAAAAA%3dXL0B">Execute Quiz</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
