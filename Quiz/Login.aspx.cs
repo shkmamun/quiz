@@ -84,8 +84,8 @@ namespace Quiz
 
                 if (user != null && user.Password.CompareTo(Password.Text.Trim()) == 0)
                 {
-                    LoginInfo.SetLoginInfo(user);
-                    FormsAuthentication.RedirectFromLoginPage(user.UserName, true);
+                 //   LoginInfo.SetLoginInfo(user);
+                 //   FormsAuthentication.RedirectFromLoginPage(user.UserName, true);
                    
                     RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
 
