@@ -34,7 +34,7 @@
                             <asp:LinkButton runat="server" ID="lnkAdmin" Text="Admin"  PostBackUrl="~/Admin/Default.aspx"></asp:LinkButton>
                         </li>
                         <li>
-                            <asp:LinkButton runat="server" ID="lnkSignOut" Text="Sign Out" OnClick="lnkSignOut_Click"></asp:LinkButton>
+                            <%--<asp:LinkButton runat="server" ID="lnkSignOut" Text="Sign Out" OnClick="lnkSignOut_Click"></asp:LinkButton>--%>
                         </li>
                     </ul>
                 </div>
